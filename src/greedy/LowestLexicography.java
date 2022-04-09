@@ -2,6 +2,9 @@ package greedy;
 
 import java.util.*;
 
+/**
+ * 获取字符串数组中所有元素，拼接后的最小字典序
+ */
 public class LowestLexicography {
 
     public static String fullyArranged(String[] strs) {
@@ -26,16 +29,16 @@ public class LowestLexicography {
         } else {
             for (int i = 0; i < strs.length; i++) {
                 if (!usedIndex.contains(i)) {
-                    curCombination += strs[i];
+//                    curCombination += strs[i];
                     usedIndex.add(i);
-                    notUsedStringsArrange(strs, allResults, curCombination, usedIndex);
+                    notUsedStringsArrange(strs, allResults, curCombination + strs[i], usedIndex);
                     usedIndex.remove(i);
                 }
             }
         }
     }
 
-
+    //既然是求拼接之后的大小，那就构造一个比较器根据拼接之后的大小来排序
     public static class MyStringComparator implements Comparator<String > {
         @Override
         public int compare(String a, String b) {
@@ -96,12 +99,18 @@ public class LowestLexicography {
         for (int i = 0; i < testTimes; i++) {
             String[] arr1 = generateRandomStringArray(arrLen, strLen);
             String[] arr2 = copyStringArray(arr1);
-            if (!fullyArranged(arr1).equals(greedyArrange(arr2))) {
+            String arr1Result = fullyArranged(arr1);
+            String arr2Result = greedyArrange(arr2);
+            if (!arr1Result.equals(arr2Result)) {
                 for (String str : arr1) {
                     System.out.print(str + ",");
                 }
                 System.out.println();
+                System.out.println(arr1Result);
+                System.out.println(arr2Result);
                 System.out.println("Oops!");
+                System.out.println();
+
             }
         }
         System.out.println("finish!");
