@@ -42,7 +42,7 @@ public class UnionFindSetI {
             return cur;
         }
 
-        public boolean isUnion(T a, T b) {
+        public boolean isSameSet(T a, T b) {
             if (!vNodeMap.containsKey(a) || !vNodeMap.containsKey(b)) {
                 return false;
             }
@@ -56,8 +56,8 @@ public class UnionFindSetI {
             Node<T> aRepresentNode = findRepresentNode(vNodeMap.get(a));
             Node<T> bRepresentNode = findRepresentNode(vNodeMap.get(b));
             if (aRepresentNode != bRepresentNode) {
-                Integer aSetSize = nodeSetSizeMap.get(vNodeMap.get(a));
-                Integer bSetSize = nodeSetSizeMap.get(vNodeMap.get(b));
+                Integer aSetSize = nodeSetSizeMap.get(aRepresentNode);
+                Integer bSetSize = nodeSetSizeMap.get(bRepresentNode);
                 Node<T> bigSetRepresentNode = aSetSize >= bSetSize ? aRepresentNode : bRepresentNode;
                 Node<T> smallSetRepresentNode = aRepresentNode == bigSetRepresentNode ? bRepresentNode : bRepresentNode;
                 nodeParentMap.put(smallSetRepresentNode, bigSetRepresentNode);
@@ -65,13 +65,19 @@ public class UnionFindSetI {
                 nodeSetSizeMap.remove(smallSetRepresentNode);
             }
         }
+
+        public int getSetSize() {
+            return nodeSetSizeMap.size();
+        }
     }
 
     public static void main(String[] args) {
         List<String> list = Stream.of("a", "b", "c").collect(Collectors.toList());
         UnionFindSet unionFindSet = new UnionFindSet(list);
-        System.out.println(unionFindSet.isUnion("a", "b"));
+        System.out.println(unionFindSet.isSameSet("a", "b"));
         unionFindSet.union("a", "b");
-        System.out.println(unionFindSet.isUnion("a", "b"));
+        System.out.println(unionFindSet.isSameSet("a", "b"));
+        System.out.println(unionFindSet.isSameSet("b", "c"));
+        System.out.println(unionFindSet.isSameSet("a", "c"));
     }
 }
