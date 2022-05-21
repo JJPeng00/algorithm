@@ -71,7 +71,7 @@ public class Kruskal {
     public Set<Edge> kruskal(Graph graph) {
         UnionFind unionFind = new UnionFind();
         unionFind.makeSets(graph.nodeMap.values());
-        PriorityQueue<Edge> edgesPriorityQueue = new PriorityQueue<>(Comparator.comparingInt(a -> a.wigth));
+        PriorityQueue<Edge> edgesPriorityQueue = new PriorityQueue<>(Comparator.comparingInt(a -> a.weight));
         edgesPriorityQueue.addAll(graph.edgeSet);
 
         HashSet<Edge> edgeResult = new HashSet<>();

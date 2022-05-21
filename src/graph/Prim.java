@@ -16,7 +16,7 @@ public class Prim {
         //哪些点被遍历到了
         HashSet<Node> visitedNodes = new HashSet<>();
         //将可能被选择的边
-        PriorityQueue<Edge> willVisitEdges = new PriorityQueue<>(Comparator.comparingInt(a -> a.wigth));
+        PriorityQueue<Edge> willVisitEdges = new PriorityQueue<>(Comparator.comparingInt(a -> a.weight));
 
         HashSet<Edge> result = new HashSet<>();
         for (Node node : graph.nodeMap.values()) {//任意取一点，这里遍历的原因是要防森林

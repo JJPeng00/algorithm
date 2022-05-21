@@ -26,9 +26,9 @@ public class Dijkstra {
                 Node toNode = edge.to;
                 Integer minDistance = distances.get(minDistanceNode);
                 if (!distances.containsKey(toNode)) {
-                    distances.put(toNode, minDistance + edge.wigth);
+                    distances.put(toNode, minDistance + edge.weight);
                 } else {
-                    distances.put(toNode, Math.min(distances.get(toNode), minDistance + edge.wigth));
+                    distances.put(toNode, Math.min(distances.get(toNode), minDistance + edge.weight));
                 }
             }
             minDistanceNode = findMinDistanceFromNotVisited(visitedNodes, distances);
