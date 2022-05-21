@@ -7,6 +7,7 @@ import java.util.Set;
 
 /**
  *子串和子序列是不同的，子串是要连续的，子序列要更自由不要求连续，但相对次序不能乱
+ * 这里也有将大问题化小问题的思想
  * 拓展：[剑指 Offer II 097. 子序列的数目](https://leetcode.cn/problems/21dk04/)
  *      可以返回以下方法中的set集合的size
  *      更好的方法是用动态规划做
@@ -14,6 +15,9 @@ import java.util.Set;
 public class StringAllSubsequences {
 
     public static List<String> subsRepeat(String s) {
+        if (s == null && s.length() < 1) {
+            return new LinkedList<>();
+        }
         char[] str = s.toCharArray();
         String path = "";
         List<String> results = new LinkedList<>();
