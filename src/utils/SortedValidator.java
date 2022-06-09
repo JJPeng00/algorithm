@@ -10,7 +10,7 @@ public class SortedValidator {
 
     public static String validate(Consumer<int[]> sortMethod) {
         int maxNum = 20;
-        int maxSize = 10;
+        int maxSize = 50;
         int testTime = 999999;
         boolean accept = true;
         String badStr = "";
