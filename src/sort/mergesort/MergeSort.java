@@ -36,6 +36,7 @@ public class MergeSort {
         int i = 0;
 
         while(lp <= mid && rp <= r) {
+            //为了实现稳定性，左右两边两个数相等时，将左边的数放在前面
             help[i++] = arr[lp] <= arr[rp] ? arr[lp++] : arr[rp++];
         }
         while(rp <= r) {
