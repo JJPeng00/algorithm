@@ -1,5 +1,7 @@
 package other;
 
+import java.util.Arrays;
+
 /**
  * @author JJPeng
  * @date 2022/10/20 19:00
@@ -13,6 +15,10 @@ public class IntegerArrayGenerator {
             arr[i] = (int) (Math.random() * (maxValue + 1));
         }
         return arr;
+    }
+
+    public static int[] copy(int[] arr) {
+        return Arrays.copyOf(arr, arr.length);
     }
 
 }
