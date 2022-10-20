@@ -3,7 +3,6 @@ package binarysearch.example;
 import other.IntegerArrayGenerator;
 
 import java.util.Arrays;
-import java.util.OptionalInt;
 
 /**
  * 查询数组中某个值是否存在
@@ -34,11 +33,13 @@ public class ElementExist {
     }
 
     public static void main(String[] args) {
-        int[] arr = IntegerArrayGenerator.generate(100, 30);
-        int element = (int) (Math.random() * 31);
-        boolean elementExist = isElementExist(arr, element);
-        //对数器遍历查找是否存在
-        OptionalInt any = Arrays.stream(arr).findAny();
-        System.out.println(elementExist == any.isPresent());
+        for (int i = 1000000; i > 0; i--) {
+            int[] arr = IntegerArrayGenerator.generate(100, 90);
+            int element = (int) (Math.random() * 31);
+            boolean elementExist = isElementExist(arr, element);
+            boolean b = Arrays.stream(arr).anyMatch(p -> p == element);
+            if ( !elementExist == b) System.out.println("bad");
+        }
+        System.out.println("finish");
     }
 }
