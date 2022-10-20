@@ -3,9 +3,9 @@ package binarysearch.example;
 import java.util.Arrays;
 
 /**
- * 找出有序数组中第一个大于等于某值的数的位置，即value右边的第一个
+ * 找出有序数组中最后一个小于等于某值的数的位置，即value的左边的第一个
  */
-public class FirstGeIndex {
+public class LastLeIndex {
 
     public static int searchIndexByValue(int[] arr, int value) {
         if (arr == null || arr.length < 1) {
@@ -18,13 +18,17 @@ public class FirstGeIndex {
         int mid;
         int index = -1;
 
-        while(left <= right) {
+        while (left <= right) {
             mid = left + (right - left)/2;
 
-            if (arr[mid] >= value) {
+            //可以合并优化，目前保留最原始的方式
+            if (arr[mid] == value) {
                 index = mid;
+                left = mid + 1;
+            } else if (arr[mid] > value) {
                 right = mid - 1;
-            } else {
+            } else if (arr[mid] < value){
+                index = mid;
                 left = mid + 1;
             }
         }
