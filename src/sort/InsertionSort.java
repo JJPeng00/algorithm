@@ -10,15 +10,14 @@ import utils.SortedValidator;
  * 稳定性：相等时不做交换，所以具有稳定性
  */
 public class InsertionSort {
+
     public static void insertionSort(int[] arr) {
         if (arr == null || arr.length < 2) {
             return;
         }
-        for (int i = 0; i < arr.length - 1; i++) {
-            for (int j = i + 1; j > 0; j--) {
-                if (arr[j] < arr[j - 1]) {
-                    swap(arr, j, j - 1);
-                }
+        for (int i = 1; i < arr.length; i++) {
+            for (int j = i; j > 0; j--) {
+                if (arr[j] < arr[j-1]) swap(arr, j, j-1);
             }
         }
     }
