@@ -17,7 +17,7 @@ public class DeleteGivenValue {
             return null;
         }
         while (head != null && head.value == target) {
-            //头节点就需要被删除，并且删除后的头节点依然需要被删除
+            //头节点就需要被删除，并且删除后的头节点依然可能被删除
             head = head.next;
         }
         //经过以上的步骤，就确定了新链表的头节点
