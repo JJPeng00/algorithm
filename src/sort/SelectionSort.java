@@ -15,12 +15,13 @@ public class SelectionSort {
         if (arr == null || arr.length < 2) {
             return;
         }
+
         for (int i = 0; i < arr.length; i++) {
-            int minIndex = i;
+            int minValueIndex = i;
             for (int j = i + 1; j < arr.length; j++) {
-                minIndex = arr[minIndex] > arr[j] ? j : minIndex;
+                minValueIndex = arr[minValueIndex] < arr[j] ?  minValueIndex : j;
             }
-            swap(arr, i, minIndex);
+            if (i != minValueIndex) swap(arr, i, minValueIndex);
         }
     }
 
