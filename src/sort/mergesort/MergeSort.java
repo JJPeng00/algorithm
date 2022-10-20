@@ -1,6 +1,6 @@
 package sort.mergesort;
 
-import utils.SortedValidator;
+import utils.IntegerArraySortedValidator;
 
 /**
  * @author JJPeng
@@ -52,7 +52,7 @@ public class MergeSort {
     }
 
     public static void main(String[] args) {
-        String validate = SortedValidator.validate(MergeSort::mergeSort);
+        String validate = IntegerArraySortedValidator.validate(MergeSort::mergeSort);
         System.out.printf(validate);
     }
 }

@@ -1,6 +1,6 @@
 package sort;
 
-import utils.SortedValidator;
+import utils.IntegerArraySortedValidator;
 
 
 /**
@@ -32,7 +32,7 @@ public class SelectionSort {
     }
 
     public static void main(String[] args) {
-        String validate = SortedValidator.validate(SelectionSort::selectionSort);
+        String validate = IntegerArraySortedValidator.validate(SelectionSort::selectionSort);
         System.out.println(validate);
     }
 }

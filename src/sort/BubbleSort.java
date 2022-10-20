@@ -1,6 +1,6 @@
 package sort;
 
-import utils.SortedValidator;
+import utils.IntegerArraySortedValidator;
 
 /**
  * @author JJPeng
@@ -29,7 +29,7 @@ public class BubbleSort {
     }
 
     public static void main(String[] args) {
-        String validate = SortedValidator.validate(BubbleSort::bubbleSort);
+        String validate = IntegerArraySortedValidator.validate(BubbleSort::bubbleSort);
         System.out.println(validate);
     }
 }
